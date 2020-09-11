@@ -1,128 +1,124 @@
-<!doctype html><html class="no-js" dir="ltr" loc="en-GB"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>WhatsApp Web</title><meta name="viewport" content="width=device-width"><meta name="google" content="notranslate"><meta name="format-detection" content="telephone=no"><meta name="description" content="Quickly send and receive WhatsApp messages right from your computer."><meta name="og:description" content="Quickly send and receive WhatsApp messages right from your computer."><meta name="og:url" content="https://web.whatsapp.com/"><meta name="og:title" content="WhatsApp Web"><meta name="og:image" content="https://static.facebook.com/images/whatsapp/www/whatsapp-promo.png"><link id="favicon" rel="shortcut icon" href="/img/favicon/1x/favicon.png" type="image/png"><link rel="apple-touch-icon" sizes="194x194" href="/apple-touch-icon.png" type="image/png"><link rel="stylesheet" href="/cssm_qr.f64c5771e69db60b4b93aacbe8a37c1b.css"><style>html, body, #app {
-              height: 100%;
-              width: 100%;
-              overflow: hidden;
-              padding: 0;
-              margin: 0;
-          }
+//MINGOLLA DANIELE              MATRICOLA N. 300738
 
-          #app {
-              position: absolute;
-              top: 0;
-              left: 0;
-          }
+#include <stdlib.h>
+#include <stdio.h>
+#include "gamelib.h"
+int main(){
+  system("clear");
+  //la variabile scelta serve ad entrare in crea mappa,gioca o ad uscire dal programma
+  //La variabile modifica è settata ad 1 ogni qual volta viene creata una mappa,così il programma riconosce se è già presente un percorso
+  //La variabile sceltamodifica assume valore 1 o 2 a seconda che l'utente voglia modificare il percorso esistente o crearne uno nuovo
+  unsigned short int scelta=0,modifica=0,sceltamodifica=0;
+  //I printf di questa tipologia servono a modificare il colore del testo nei printf successivi
+  printf("\033[1;31m");
+  //Vari printf seguiti da una pausa per la creazione di una breve intro
+  printf("\t\tINGRANDISCI LO SCHERMO PER EVITARE GLITCH GRAFICI\n");
+  sleep(2);
+  system("clear");
+  printf("\t\t\t\tA GAME CREATED BY...\n");
+  sleep(2);
+  system("clear");
+  printf("\t\t\t\tDANIELE MINGOLLA    MATRICOLA N. 300738\n");
+  sleep(2);
+  system("clear");
+  printf("\033[1;31m");
+  printf("\t                              .___.\n");
+  printf("\t          /)               ,-^     ^-. \n");
+  printf("\t         //               /           \\\n");
+  printf("\t.-------| |--------------/  __     __  \\-------------------.__\n");
+  printf("\t|WMWMWMW| |>>>>>>>>>>>>> | />>\\   />>\\ |>>>>>>>>>>>>>>>>>>>>>>:>\n");
+  printf("\t`-------| |--------------| \\__/   \\__/ |-------------------'^^\n");
+  printf("\t         \\\\               \\    /|\\    /\n");
+  printf("\t          \\)               \\   \\_/   /\n");
+  printf("\t                            |       |\n");
+  printf("\t                            |+H+H+H+|\n");
+  printf("\t                            \\       /\n");
+  printf("\t                             ^-----^\n");
+  printf("\tÈ venerdì 13 giugno 1980,\n\ted un gruppo di studenti universitari ");
+  printf("del Corso di Laurea in Informatica\n\tsi trasferisce in vacanza al Campeggio Lake Trasymeno,che sta per riaprire.\n");
+  sleep(4);
+  printf("\tVentitre anni prima, nello stesso campeggio, un ragazzino di nome Gieson\n\tera annegato ");
+  printf("per colpa della negligenza di un programmatore,\n\ta causa di un segmentation fault nel suo programma di noleggio delle barche,\n");
+  printf("\talla famiglia di Gieson era stata affidata una barca con un motore difettoso.\n");
+  sleep(5);
+  printf("\tGieson però infesta ancora il campeggio, e nutre vendetta nei confronti\n\tdegli informatici poco attenti.\n");
+  printf("\tGiacomo e Marzia, rimangono isolati dagli altri quando...\n");
+  printf("\033[0m");
+  sleep(4);
+  system("clear");
+        do{
+            printf("\033[1;31m");
+            printf("\t                              .___.\n");
+            printf("\t          /)               ,-^     ^-. \n");
+            printf("\t         //               /           \\\n");
+            printf("\t.-------| |--------------/  __     __  \\-------------------.__\n");
+            printf("\t|WMWMWMW| |>>>>>>>>>>>>> | />>\\   />>\\ |>>>>>>>>>>>>>>>>>>>>>>:>\n");
+            printf("\t`-------| |--------------| \\__/   \\__/ |-------------------'^^\n");
+            printf("\t         \\\\               \\    /|\\    /\n");
+            printf("\t          \\)               \\   \\_/   /\n");
+            printf("\t                            |       |\n");
+            printf("\t                            |+H+H+H+|\n");
+            printf("\t                            \\       /\n");
+            printf("\t                             ^-----^\n");
+            puts("");
+           printf("\t\tOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoO\n");
+           printf("\t\tO                                                 O\n");
+           printf("\t\t8                1......CREA MAPPA                8\n");
+           printf("\t\tO                2...........GIOCA                O\n");
+           printf("\t\t8                3............ESCI                8\n");
+           printf("\t\tO                                                 O\n");
+           printf("\t\tOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoOoO\n");
+           printf("\n\t\t\t\tSCELTA...    ");
+           printf("\033[0m");
 
-          #startup, #initial_startup {
-              width: 100%;
-              height: 100%;
-              position: fixed;
-              background-color: #f0f0f0;
-
-              -moz-user-select: none;
-              -webkit-user-select: none;
-
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              display: -webkit-box;
-              display: -webkit-flex;
-              -webkit-align-items: center;
-              -webkit-justify-content: center;
-              flex-direction: column;
-              -webkit-flex-direction: column;
+          //controllo sull'input
+          while (scanf("%hu",&scelta) != 1 || scelta >3|| scelta <1){
+               printf("\033[1;31m");
+                  printf("\n\t\tSCELTA NON CORRETTA! REINSERISCI IL VALORE: ");
+                   printf("\033[0m");
+              while (getchar() != '\n');
           }
-
-          .spinner-container {
-              -webkit-animation: rotate 2s linear infinite;
-                      animation: rotate 2s linear infinite;
-              z-index: 2;
-          }
-
-          .spinner-path {
-              stroke-dasharray: 1,150; /* 1%, 101% circumference */
-              stroke-dashoffset: 0;
-              stroke: #acb9bf;
-              stroke-linecap: round;
-              -webkit-animation: dash 1.5s ease-in-out infinite;
-                      animation: dash 1.5s ease-in-out infinite;
-          }
-
-          @keyframes rotate {
-              100% { transform: rotate(360deg); }
-          }
-          @-webkit-keyframes rotate{
-              100% { -webkit-transform: rotate(360deg); }
-          }
-
-          @keyframes dash {
-              0% {
-                  stroke-dasharray: 1,150;  /* 1%, 101% circumference */
-                  stroke-dashoffset: 0;
-              }
-              50% {
-                  stroke-dasharray: 90,150; /* 70%, 101% circumference */
-                  stroke-dashoffset: -35;   /* 25% circumference */
-              }
-              100% {
-                  stroke-dasharray: 90,150; /* 70%, 101% circumference */
-                  stroke-dashoffset: -124;  /* -99% circumference */
-              }
-          }
-          @-webkit-keyframes dash {
-              0% {
-                  stroke-dasharray: 1,150;  /* 1%, 101% circumference */
-                  stroke-dashoffset: 0;
-              }
-              50% {
-                  stroke-dasharray: 90,150; /* 70%, 101% circumference */
-                  stroke-dashoffset: -35;   /* 25% circumference */
-              }
-              100% {
-                  stroke-dasharray: 90,150; /* 70%, 101% circumference */
-                  stroke-dashoffset: -124;  /* -99% circumference */
-              }
-          }
-
-          .progress-container {
-            width: 360px;
-            position: fixed;
-            padding-top: 120px;
-            top: 50%;
-            left: 50%;
-            margin-left: -180px;
-          }
-
-          progress {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 100%;
-            height: 3px;
-            border: none;
-            margin: 0;
-            color: #00d9bb;
-            background-color: #e6e6e6;
-          }
-
-          progress[value]::-webkit-progress-bar {
-            background-color: #e6e6e6;
-          }
-
-          progress[value]::-webkit-progress-value {
-              background-color: #00d9bb;
-              transition: width 0.3s ease;
-          }
-
-          progress[value]::-moz-progress-bar {
-              background-color: #00d9bb;
-          }</style></head><body class="web"><script>try {
-    var systemThemeDark;
-    var theme = window.localStorage.getItem('theme');
-    var systemThemeMode = window.localStorage.getItem('system-theme-mode');
-    if ((systemThemeMode === "true" || !theme) && window.matchMedia) {
-      var systemTheme = window.matchMedia(
-        '(prefers-color-scheme: dark)',
-      );
-      systemThemeDark = systemTheme && systemTheme.matches;
-    }
-    if ((theme === '"dark"') || systemThemeDark) document.body.classList.add('dark');
-  } catch(e) {}</script><div id="app" data-app2="/app2.215119033c36173424fb.js" data-app="/app.17f32c3e052f1418dacb.js" data-vendor1="/vendor1~app.e941c55677c41db9ac75.js" data-vendor2="/vendors~app2.e484f3f38c1632ee4840.js" data-app-size="2816315" data-vendor1-size="1488073" data-vendor2-size="73447" data-cssm-app="/cssm_app.8d05fec1aff7a07b88915208da896aeb.css"></div><div id="hard_expire_time" data-time="1615139223.746"></div><div id="initial_startup"><svg class="spinner-container" width="50" height="50" viewBox="0 0 44 44"><circle class="spinner-path" cx="22" cy="22" r="20" fill="none" stroke-width="4"></circle></svg><div class="progress-container"><progress dir="ltr" id="progressbar" value="0" max="5472293.75"></progress></div></div><script>/*! Copyright (c) 2020 WhatsApp Inc. All Rights Reserved. */!function(e){var r={};function t(n){if(r[n])return r[n].exports;var o=r[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,t),o.l=!0,o.exports}t.m=e,t.c=r,t.d=function(e,r,n){t.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:n})},t.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},t.t=function(e,r){if(1&r&&(e=t(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(t.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var o in e)t.d(n,o,function(r){return e[r]}.bind(null,o));return n},t.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(r,"a",r),r},t.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},t.p="/",t(t.s="dgeiejggee")}({bcceefiggd:function(e,r,t){"use strict";var n=t("cfjecfhbfg");Object.defineProperty(r,"__esModule",{value:!0}),r.default=r.ScriptLoaderClass=void 0;var o=n(t("eaidjcib")),a=n(t("dgcdacjddi")),i=t("dfjdhbagei"),c=n(t("bjiddchbgc")),s=n(t("jegfdjaci")),u=function(){function e(){(0,o.default)(this,e)}return(0,a.default)(e,[{key:"_loadScript",value:function(e){var r=e.src,t=e.size;return new Promise((function(e,n){var o="progress_script_"+r,a=document.getElementById(o);a&&document.head&&document.head.removeChild(a);var i=function(e){return/\.js$/.test(e)}(r)?function(e,r){var t=document.createElement("script");return t.id=r,t.type="text/javascript",t.charset="utf-8",t.src=e,t}(r,o):function(e,r){var t=document.createElement("link");return t.id=r,t.rel="stylesheet",t.href=e,t}(r,o);i.onload=function(){i.onload=i.onerror=void 0,e({progress:t,size:t,src:r})},i.onerror=function(e){i.onload=i.onerror=void 0,n(e)},document.head&&document.head.appendChild(i)}))}},{key:"loadScriptsInParallel",value:function(e,r){var t=this,n=null==r?void 0:r.onProgress,o=[],a=[],i=[],s=e.reduce((function(e,r){return e+r.size}),0),u=new c.default,d=e.map((function(e){return t._loadScript(e).then((function(r){o.push(e),u.updateProgress(r.src,r.progress),n&&n({totalSize:s,progress:u.getProgress()})})).catch((function(r){i.push(r),a.push(e)}))}));return Promise.all(d).then((function(){return{succeededScripts:o,failedScripts:a,errors:i}}))}},{key:"loadInSeriesWithRetry",value:function(e,r){var t=this,n=r.onProgress,o=e.reduce((function(e,r){return e+r.size}),0),a=new c.default;return(0,s.default)(e,(function(e){return t.loadWithRetry(e).then((function(r){return a.updateProgress(e.src,e.size),n&&n({totalSize:o,progress:a.getProgress()}),r}))})).then((function(r){return Math.random()>.9&&e.forEach((function(e,t){var n=e.src,o=r[t].errors;if(o.length){var a=o.length+1;(0,i.logAsError)({error:"[eventual success]: Bundle loaded after ".concat(a," attempts"),reason:"[eventual success]: Bundle: ".concat((0,i.getBundleName)(n)," loaded after ").concat(a," attempts in series"),stack:""})}})),{strategy:"series"}}))}},{key:"loadWithRetry",value:function(e){var r=this,t=[];return new Promise((function(n){var o=function(){return r._loadScript(e).then((function(){return n({errors:t})})).catch((function(r){window.setTimeout(o,Math.min(1e4,1e3*Math.pow(2,t.length))),t.push(r),(0,i.logScriptLoadError)(e.src,t.length)}))};o()}))}},{key:"loadScriptsWithFallbackToSeries",value:function(e,r){var t=this,n=null==r?void 0:r.onProgress,o=e.reduce((function(e,r){return e+r.size}),0),a=new c.default;return this.loadScriptsInParallel(e,{onProgress:function(e){a.updateProgress("parallel",e.progress),i()}}).then((function(e){var r=e.failedScripts;return r.length?t.loadInSeriesWithRetry(r,{onProgress:s}).then((function(){return{strategy:"series"}})):{strategy:"parallel"}}));function i(){n&&n({totalSize:o,progress:a.getProgress()})}function s(e){a.updateProgress("series",e.progress),i()}}}]),e}();var d=u;r.ScriptLoaderClass=d;var l=new u;r.default=l},bjiddchbgc:function(e,r,t){"use strict";var n=t("cfjecfhbfg");Object.defineProperty(r,"__esModule",{value:!0}),r.default=void 0;var o=n(t("eaidjcib")),a=n(t("dgcdacjddi")),i=function(){function e(){(0,o.default)(this,e),this._progressMap={}}return(0,a.default)(e,[{key:"updateProgress",value:function(e,r){if(!(r<0)){var t=this._progressMap[e]||0;this._progressMap[e]=Math.max(t,r)}}},{key:"getProgress",value:function(){var e=this;return Object.keys(this._progressMap).reduce((function(r,t){return r+e._progressMap[t]}),0)}}]),e}();r.default=i},cahfddcdga:function(e,r,t){"use strict";Object.defineProperty(r,"__esModule",{value:!0}),r.default=function(e){var r=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"?";if(null==e)throw new Error("Unexpected null or undefined: ".concat(r));return e}},cfjecfhbfg:function(e,r){e.exports=function(e){return e&&e.__esModule?e:{default:e}}},cjighbeabh:function(e,r,t){"use strict";function n(e){return e.includes("windows")?"Windows":e.includes("mac")?"Mac OS":e.includes("linux")?"Linux":"Unparsed"}Object.defineProperty(r,"__esModule",{value:!0}),r.parseUASimple=function(e,r){var t=e.toLowerCase();return{browser:c(t),device:n(t),appVersion:r}};var o=/(chrome|firefox)\/([\w\.]+)/i,a=/(edge|opr)\/([\w\.]+)/i,i={chrome:"Chrome",edge:"Edge",opr:"Opera",firefox:"Firefox"};function c(e){var r=e.match(a)||e.match(o);return null==r?"Unparsed":"".concat(i[r[1]]," ").concat(r[2])}},dadahbedbh:function(e,r,t){"use strict";Object.defineProperty(r,"__esModule",{value:!0}),r.getLogUserAgent=function(e){var r,t=e.appVersion,n=e.browser,o=e.device;return r="Web/"+n,"WhatsApp/".concat(t," ").concat(r," Device/").concat(o)}},dfjdhbagei:function(e,r,t){"use strict";var n=t("cfjecfhbfg");Object.defineProperty(r,"__esModule",{value:!0}),r.logProgressError=function(e){v(u({error:"unexpected error in progress.js",reason:String(e),stack:e.stack||""}),"progress")},r.logScriptLoadError=function(e,r){if(0===r)return;var t=s(e),n=u({error:"failed to load a js or css bundle",reason:"failed to load [".concat(t,"] on [").concat(r,"] retry"),stack:""});5===r&&v(n,"load")},r.logAsError=function(e){v(u(e),"load")},r.getBundleName=s;var o=n(t("eaceddbccb")),a=n(t("cahfddcdga")),i=t("dadahbedbh"),c=t("cjighbeabh");function s(e){return e.split(".")[0].replace(/^\//,"")}function u(e){var r=e.error,t=e.reason,n=e.stack,o=(new Date).toISOString();return"".concat(o,": error: ").concat(r,"\n").concat(o,": reason for logs: ").concat(t,"\n").concat(o,": userAgent: ").concat(window.navigator.userAgent,"\n").concat(n)}var d,l="2.2037.5",f="https://crashlogs.whatsapp.net/wa_clb_data",p="1063127757113399|745146ffa34413f9dbb5469f5370b7af",g="WAUnknownID",h="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36";function v(e,r){var t=window.navigator.userAgent;if(t!==h||!e.includes("getElementsByTagName")){var n=new FormData,s=new Blob([e],{type:"text/plain"});n.append("from",function(){if(d)return d;try{(d=JSON.parse((0,a.default)(o.default,"localStorage").getItem(g)))&&(d=d.replace("-",""))}catch(e){}if(!d){d="unknown"+Math.floor(1e10*Math.random());try{(0,a.default)(o.default,"localStorage").setItem(g,JSON.stringify(d))}catch(e){}}return d}()),n.append("agent",(0,i.getLogUserAgent)((0,c.parseUASimple)(t,l))),n.append("file",s,"logs.txt"),n.append("tags",r);var u=new XMLHttpRequest,v=f+"?access_token="+encodeURIComponent(p);u.open("POST",v,!0),u.send(n)}}},dgcdacjddi:function(e,r){function t(e,r){for(var t=0;t<r.length;t++){var n=r[t];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}e.exports=function(e,r,n){return r&&t(e.prototype,r),n&&t(e,n),e}},dgeiejggee:function(e,r,t){"use strict";var n=t("cfjecfhbfg");Object.defineProperty(r,"__esModule",{value:!0}),r.default=c;var o=n(t("dhgjdhifae")),a=t("dfjdhbagei"),i=n(t("bcceefiggd"));if(window.onerror=function(e,r,t,n,o){return(0,a.logProgressError)(o),!0},window.exeTracker=o.default,window.navigator.serviceWorker&&!window.navigator.serviceWorker.controller)try{window.navigator.serviceWorker.register("/serviceworker.js",{scope:"/"})}catch(e){}function c(){var e=document.getElementById("app");if(!e)throw"root element app not found";if(!e.dataset)throw"missing dataset annotations on app for bundles";var r=[{src:e.dataset.vendor1,size:+e.dataset.vendor1Size},{src:e.dataset.vendor2,size:+e.dataset.vendor2Size},{src:e.dataset.app,size:+e.dataset.appSize}],t=[{src:e.dataset.cssmApp,size:0},{src:e.dataset.app2,size:0}];i.default.loadScriptsWithFallbackToSeries(r,{onProgress:function(e){var r=document.getElementById("progressbar");r&&r.setAttribute("value",e.progress.toString())}}).then((function(e){var r="parallel"===e.strategy?i.default.loadScriptsWithFallbackToSeries(t):i.default.loadInSeriesWithRetry(t,{onProgress:function(){}});if(window.Exe)window.Exe(r.then((function(){})));else{var n=window.setTimeout((function(){(0,a.logAsError)({error:"window.Exe was not found after waiting",reason:"window.Exe was not found after waiting for ".concat(5e3," ms"),stack:""})}),5e3);o.default.onExe((function(e){window.clearTimeout(n),e(r.then((function(){}))),(0,a.logAsError)({error:"Avoided window.Exe crash",reason:"window.Exe was not ready when it was attempted to be used",stack:""})}))}return r})).catch((function(e){throw(0,a.logProgressError)(e),e}))}c()},dhgjdhifae:function(e,r,t){"use strict";var n=t("cfjecfhbfg");Object.defineProperty(r,"__esModule",{value:!0}),r.default=r.ExeTrackerClass=void 0;var o=n(t("eaidjcib")),a=n(t("dgcdacjddi")),i=function(){function e(){(0,o.default)(this,e),this._exe=null,this._callback=null}return(0,a.default)(e,[{key:"onExe",value:function(e){if(this._callback)throw new Error("An onExe callback has already been set");this._callback=e,this._runCallback()}},{key:"setExe",value:function(e){if(this._exe)throw new Error("Cannot set Exe twice");this._exe=e,this._runCallback()}},{key:"_runCallback",value:function(){this._exe&&this._callback&&this._callback(this._exe)}}]),e}(),c=i;r.ExeTrackerClass=c;var s=new i;r.default=s},eaceddbccb:function(e,r,t){"use strict";var n;Object.defineProperty(r,"__esModule",{value:!0}),r.default=void 0;try{n=window.localStorage}catch(e){}var o=n;r.default=o},eaidjcib:function(e,r){e.exports=function(e,r){if(!(e instanceof r))throw new TypeError("Cannot call a class as a function")}},jegfdjaci:function(e,r,t){"use strict";Object.defineProperty(r,"__esModule",{value:!0}),r.default=function(e,r){var t=[];return e.reduce((function(e,n){return e.then((function(){return r(n)})).then((function(e){return t.push(e),t}))}),Promise.resolve([]))}}});</script><scripts src="/../output/moment_locales/en-GB.e6714da0e07d8af485bb.js.map"></scripts></body></html>
+          switch(scelta){
+                 case 1:
+                        //se modifica ha valore 1 allora in memoria è presente un percorso
+                        if(modifica==1){
+                            printf("\033[1;31m");
+                            printf("\n\t\t\tÈ PRESENTE UN PERCORSO!\n\n\t\t\t1......MODIFICA PERCORSO ESISTENTE\n\t\t\t2...........CREA UN NUOVO PERCORSO\n\n\t\t\tSCELTA: ");
+                            while (scanf("%hu",&sceltamodifica) != 1 || sceltamodifica>2 || sceltamodifica<1){
+                                    printf("\n\t\tSCELTA NON CORRETTA! REINSERISCI LA SCELTA: ");
+                                    while (getchar() != '\n');
+                                }
+                                 printf("\033[0m");
+                                 //se l'untente digita 1 il percorso preesistente rimane intatto ma può modificarlo a piacimento
+                                if (sceltamodifica == 1){
+                                    system("clear");
+                                    crea_mappa();
+                                }
+                                //se l'utente digita 2,cioè decide di creare un nuovo percorso,libero la memoria allocato al percorso precedente richiamando un'apposita funzione e poi richiamo il crea mappa
+                                else if(sceltamodifica == 2){
+                                    system("clear");
+                                    termina_gioco();
+                                    crea_mappa();
+                                }
+                        }
+                        else{
+                            //creando una mappa, modifica viene settata ad 1
+                            system("clear");
+                            crea_mappa();
+                            modifica=1;
+                        }
+                        break;
+                 case 2:
+                        //nel momento in cui inizia il gioco,modifica viene settata di nuovo a 0 poichè al termine del gioco la mappa creata non esisterà più
+                        gioca();
+                        modifica=0;
+                        break;
+                 case 3:
+                    //viene liberata la memoria allocata per l'intero percorso richiamando l'apposita funzione
+                       system("clear");
+                       termina_gioco();
+                 default:
+                       break;
+         }
+    }while(scelta!=3);
+}
